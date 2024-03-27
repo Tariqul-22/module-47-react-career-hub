@@ -1,11 +1,12 @@
 import { SlLocationPin } from "react-icons/sl";
 import { CgDollar } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 const FeaturedJob = ({ job }) => {
     console.log(job);
     const { id, logo, job_title, company_name, remote_or_onsite, job_type, location, salary } = job
     return (
-        <div className="border border-solid border-stone-500 p-6 rounded-xl">
+        <div className="border border-solid border-stone-500 p-6 rounded-xl space-y-3">
             <img className="h-10" src={logo} alt="" />
             <h3 className="text-xl">{job_title}</h3>
             <p>{company_name}</p>
@@ -19,11 +20,14 @@ const FeaturedJob = ({ job }) => {
                     <p>{location}</p>
                 </div>
                 <div className="flex gap-2 items-center">
-                    <CgDollar />   
+                    <CgDollar />
                     <p>Salary : {salary}</p>
                 </div>
             </div>
-            <button className="p-2 bg-violet-600 text-white">View Details</button>
+            <Link to={`/job/${id}`}>
+                <button className="p-2 bg-violet-600 text-white rounded-lg">View Details</button>
+            </Link>
+
         </div>
     );
 };

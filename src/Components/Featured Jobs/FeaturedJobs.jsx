@@ -21,7 +21,7 @@ const FeaturedJobs = () => {
                     featuredJobs.slice(0, dataLength).map(job => <FeaturedJob key={job.id} job={job}></FeaturedJob>)
                 }
             </div>
-            <div className={featuredJobs.length === dataLength && 'hidden'}>
+            <div className={featuredJobs.length === dataLength ? 'hidden' : 'mt-4 flex justify-center'}>
             <button
             onClick={() => setDataLength(featuredJobs.length)} 
             className="btn btn-primary ${featuredJobs.length ===}">View Details</button>
